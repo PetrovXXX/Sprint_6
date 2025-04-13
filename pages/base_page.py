@@ -17,7 +17,7 @@ class BasePage:
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
     @allure.step("Кликнуть на элемент")
-    def click_on_element(self, locator, timeout=55):
+    def click_on_element(self, locator, timeout=30):
         element = WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
         element.click()
@@ -71,3 +71,22 @@ class BasePage:
         element = WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
         self.driver.execute_script("arguments[0].scrollIntoView({block: 'center', behavior: 'smooth'});", element)
         element.click()
+
+    @allure.step("Кликнуть на элемент 2")
+    def click_element(self, locator, timeout=25):
+        element = WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
+        element.click()
+
+    @allure.step("Ожидание кликабельности элемента {locator}")
+    def wait_for_clickable(self, locator, timeout=10):
+        return WebDriverWait(self.driver, timeout).until(
+            EC.element_to_be_clickable(locator))
+
+    @allure.step("Ожидание видимости элемента {locator}")
+    def wait_for_visibility(self, locator, timeout=15):
+        return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
+
+
+
+
+

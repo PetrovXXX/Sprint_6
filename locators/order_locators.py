@@ -14,11 +14,6 @@ class OrderPageLocators:
     METRO_LOCATOR = (By.XPATH, "//input[@placeholder='* Станция метро']")
     ELEMENT_LIST_LOCATOR = (By.XPATH, "//li[@class='select-search__row']")
 
-    @staticmethod
-    def station_locator(station_name):
-     return By.XPATH, f"//div[contains(@class, 'select-search__option') and text()='{station_name}']"
-
-
     #Про Аренду
     DELIVERY_DATE = (By.XPATH, "//input[@placeholder='* Когда привезти самокат']")
     DATE_LIST = (By.CLASS_NAME, "react-datepicker__day react-datepicker__day--021 react-datepicker__day--selected")

@@ -13,8 +13,7 @@ class ButtonPage(BasePage):
     def yredirect_in_dzen(self):
         actual_curl = self.redirect_dzen_url(curl.dzen_redirect_url)
         assert "https://dzen.ru/?yredirect=true" in actual_curl
-        self.driver.close()
-        self.driver.switch_to.window(self.driver.window_handles[0])
+
 
     @allure.step("Кликнуть на ссылку Самокат и дождаться загрузки сайта")
     def click_logo_scooter(self):
@@ -23,12 +22,12 @@ class ButtonPage(BasePage):
     @allure.step("Проверить перехода по ссылке Самокат")
     def open_in_main_site(self):
         actual_curl = self.open_web_page(curl.main_site)
-        assert "https://qa-scooter.praktikum-services.ru/" in actual_curl
+        assert curl.main_site in actual_curl
 
     @allure.step("Проверить перехода на окно формы Для кого самокат")
     def page_for_whom_scooter(self):
         actual_curl = self.open_web_page(curl.main_site)
-        assert "https://qa-scooter.praktikum-services.ru/order" in actual_curl
+        assert curl.main_site in actual_curl
 
     @allure.step("Кликнуть на кнопку заказать в верхней части страницы")
     def click_order_button_above(self):

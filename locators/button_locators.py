@@ -12,6 +12,6 @@ class ButtonPageLocators:
 
     @staticmethod
     def button_order_bot():
-        order_button_above = By.XPATH, f'//*[@id="root"]/div/div/div[4]/div[2]/div[5]/button'
+        order_button_above = By.XPATH, f'//div[@class="Home_FinishButton__1_cWm"]'
         return order_button_above
 
